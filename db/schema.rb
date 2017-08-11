@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text "name"
-    t.text "date"
+    t.datetime "date"
     t.integer "user_id"
     t.text "importance"
     t.text "hour"
