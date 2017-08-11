@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h1><%= "Tasks Completed (#{@date})"%></h1>
+    <hr>
+    <% if @tasks.count==0%>
+    <h4> No Record Yet</h4>
+    <hr>
+    <% else%>
+    <ol>
+        <% @tasks.each do |t|%>
+
+        <li> <b><%=t.name%></b> <span class="right-aligned"><%= link_to "[Edit]", "/tasks/#{t.id}/edit",class: 'color-blue' %> <%= link_to "[Delete]", "/tasks/#{t.id}" , date: "#{@date}",method: 'delete', data: { confirm: "Are you sure to delete?" },class: 'color-blue'%></span></p>
+            <p class="justified"> <%=t.description%></p> 
+            <p><b> Importance: </b><%=t.importance%></p>
+            <p><b> Duration: </b><%= t.hour.to_i%> hrs <%= t.minute.to_i%> mins</p> 
+        </li>
+        <hr>
+        <%end%>
+    </ol>
+    <%end%>
+
+    <%= button_to "Add", "/tasks/new", form: {class:'inline-block'}, params:{date: "#{@date}"}, method: :get, class: 'btn btn-primary'%> 
+    <a class="btn btn-primary btn-md" href="/tasks" role="button">Back</a>
+
+</div>
+</div>

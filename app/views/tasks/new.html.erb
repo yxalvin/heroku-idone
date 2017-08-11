@@ -1,0 +1,15 @@
+<h1>New Task</h1>
+
+<div class="row">
+	<div class="col-sm-6">
+
+		<%= form_tag("/tasks", method: 'post') do %>
+		<h3>Add A New Task</h3>
+		<p> Name: <%= text_field_tag :name, "", class: 'form-control' %></p>
+		<p> Description: <%= text_area_tag :description, "", rows: 3, class: 'form-control' %></p>
+		<p>Completion Date: <%=date_field_tag :date,"#{params['date']}"%></p>
+		<p>Duration (HH:MM): <%=time_select("time", "written_on", {default: {hour: "00",minute:"00"}})%></p>
+		<p>Importance: <%= select_tag :importance, options_for_select(["Low","Medium","High"], "Low")%></p>
+		<%= submit_tag "Submit", class: 'btn btn-primary' %>
+		<a class="btn btn-primary btn-md" href="/tasks" role="button"> Return</a>
+		<% end %>

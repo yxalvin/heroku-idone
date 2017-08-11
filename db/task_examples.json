@@ -1,0 +1,50 @@
+{ "tasks": [
+  {
+    "name": "Echo Dot",
+    "date": "2017-07-30",
+    "description": "Echo Dot is a hands-free, voice-controlled device with a small built-in speaker—it can also connect to your speakers or headphones over Bluetooth or through a 3.5 mm audio cable to deliver stereo sound to the speakers you choose. Dot connects to the Alexa Voice Service to play music, make calls, send and receive messages, provide information, news, sports scores, weather, and more—instantly.",
+    "hour":"01",
+    "minute":"30",
+    "importance":"medium"
+  },
+  {
+    "name": "Echo Dot",
+    "date": "2017-07-30",
+    "description": "Echo Dot is a hands-free, voice-controlled device with a small built-in speaker—it can also connect to your speakers or headphones over Bluetooth or through a 3.5 mm audio cable to deliver stereo sound to the speakers you choose. Dot connects to the Alexa Voice Service to play music, make calls, send and receive messages, provide information, news, sports scores, weather, and more—instantly.",
+    "hour":"01",
+    "minute":"30",
+    "importance":"medium"
+  },
+  {
+    "name": "Echo Dot",
+    "date": "2017-07-30",
+    "description": "Echo Dot is a hands-free, voice-controlled device with a small built-in speaker—it can also connect to your speakers or headphones over Bluetooth or through a 3.5 mm audio cable to deliver stereo sound to the speakers you choose. Dot connects to the Alexa Voice Service to play music, make calls, send and receive messages, provide information, news, sports scores, weather, and more—instantly.",
+    "hour":"01",
+    "minute":"30",
+    "importance":"medium"
+  },
+  {
+    "name": "Echo Dot",
+    "date": "2017-07-30",
+    "description": "Echo Dot is a hands-free, voice-controlled device with a small built-in speaker—it can also connect to your speakers or headphones over Bluetooth or through a 3.5 mm audio cable to deliver stereo sound to the speakers you choose. Dot connects to the Alexa Voice Service to play music, make calls, send and receive messages, provide information, news, sports scores, weather, and more—instantly.",
+    "hour":"01",
+    "minute":"30",
+    "importance":"medium"
+  },
+  {
+    "name": "Echo Dot",
+    "date": "2017-07-30",
+    "description": "Echo Dot is a hands-free, voice-controlled device with a small built-in speaker—it can also connect to your speakers or headphones over Bluetooth or through a 3.5 mm audio cable to deliver stereo sound to the speakers you choose. Dot connects to the Alexa Voice Service to play music, make calls, send and receive messages, provide information, news, sports scores, weather, and more—instantly.",
+    "hour":"01",
+    "minute":"30",
+    "importance":"medium"
+  },
+  {
+    "name": "Echo Dot",
+    "date": "2017-07-30",
+    "description": "Echo Dot is a hands-free, voice-controlled device with a small built-in speaker—it can also connect to your speakers or headphones over Bluetooth or through a 3.5 mm audio cable to deliver stereo sound to the speakers you choose. Dot connects to the Alexa Voice Service to play music, make calls, send and receive messages, provide information, news, sports scores, weather, and more—instantly.",
+    "hour":"01",
+    "minute":"30",
+    "importance":"medium"
+  }
+]}

@@ -1,0 +1,18 @@
+<div class="container">
+      <div class="simple_calendar">
+    <%= month_calendar do |date| %>
+  <%= link_to date.day, "/tasks/#{date}" %>
+  <br>
+  <% hour = Task.where(date: date,user_id: @user.id).all.sum("hour")%>
+  <% minute = Task.where(date: date,user_id: @user.id).all.sum("minute")%>
+  <% if (minute.to_i/60)>0 %>
+<% hour = hour.to_i + (minute.to_i/60) %>
+<% minute = minute.to_i%60 %>
+<% end %>
+<% if hour.to_i !=0 || minute.to_i !=0 %>
+<h6><b>Total: </b><%= hour.to_s + " hrs " + minute.to_s + " mins" %> </h6>
+<% end %>
+<% end %>
+        <p><a class="btn btn-primary btn-md" href="/tasks/new" role="button"> Add Task</a></p>
+</div>
+    </div>

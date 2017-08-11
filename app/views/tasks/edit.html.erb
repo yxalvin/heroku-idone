@@ -1,0 +1,40 @@
+<div class="page-header">
+  <h1>Edit Task #<%= params[:id] %></h1>
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+
+    <%= form_tag("/tasks/#{@task.id}", method: 'patch') do  %>
+
+    <div class="form-group">
+      <%= label_tag :name, "Task Summary" %>
+      <%= text_field_tag :name, @task.name, autofocus: true, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :description, "Describe the task you completed:" %>
+      <%= text_area_tag :description, @task.description,
+      rows: 5, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <p>Completion Date: <%=date_field_tag :date,@task.date%></p>
+    </div>
+    <div class="form-group">
+      <p>Duration (HH:MM): <%=time_select("time", "written_on", {default: {hour: @task.hour,minute:@task.minute}})%></p>
+    </div>
+    <div class="form-group">
+    <p>Importance: <%= select_tag :importance,options_for_select(["Low","Medium","High"], @task.importance)%></p>
+    </div>
+    <%= hidden_field_tag :date , "#{@date}" %>
+
+
+
+    <%= submit_tag "Update Task", class: 'btn btn-success btn-lg'%>
+    or
+    <%= link_to "Cancel", "/tasks/#{@date}" %>
+
+    <% end %>
+
+  </div>
+</div>
