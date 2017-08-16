@@ -14,8 +14,6 @@ class TasksController < ApplicationController
   def show
     @date = params["date"]
     @tasks = Task.where(date: @date,user_id:@user.id).all
-    @hour = @tasks.sum("hour")
-    @minute = @tasks.sum("minute")
   end
 
   def new
