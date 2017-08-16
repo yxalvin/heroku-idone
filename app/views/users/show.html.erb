@@ -22,31 +22,31 @@
     <h3>Tasks Completed</h3>
 
     <div class="row table-responsive">
-  <div class="col-sm-6">
+      <div class="col-sm-6">
 
-    <table class="table table-striped table-bordered">
-      <thead>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Importance</th>
-        <th>Duration</th>
-        <th class="no-wrap">Completion Date</th>
-      </thead>
-      <% @tasks.each do |task| %>
-        <tr>
-          <td><%= link_to task.id, "/tasks/#{task.id}/edit"%></td>
-          <td class="mid-width"><%= task.name %></td>
-          <td class="wide-width"><%= task.description %></td>
-          <td><%= task.importance %></td>
-          <td class="no-wrap"><%= task.hour.to_i%> hrs <%= task.minute.to_i%> mins</td>
-          <td><%= task.date %></td>
-        </tr>
-      <% end %>
-    </table>
-<a class="btn btn-primary btn-md" href="/tasks" role="button">Back</a>
-  </div>
-</div>
+        <table class="table table-striped table-bordered">
+          <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Importance</th>
+            <th>Duration</th>
+            <th class="no-wrap">Completion Date</th>
+          </thead>
+          <% @tasks.each do |task| %>
+          <tr>
+            <td><%= link_to task.id, "/tasks/#{task.id}/edit"%></td>
+            <td class="mid-width"><%= task.name %></td>
+            <td class="wide-width"><%= task.description %></td>
+            <td><%= task.importance %></td>
+            <td class="no-wrap"><%= task.hour.to_i%> hrs <%= task.minute.to_i%> mins</td>
+            <td><%= task.date %></td>
+          </tr>
+          <% end %>
+        </table>
+        <a class="btn btn-primary btn-md" href="/tasks" role="button">Back</a>
+      </div>
+    </div>
 
   </div>
 </div>

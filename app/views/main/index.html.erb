@@ -1,55 +1,39 @@
-<% user = User.find_by(id: session[:user_id]) %>
-<% if user.present?%>
-
-
+<% if session["user_id"].present? %>
 <div class="container">
-      <div class="simple_calendar">
+  <div class="simple_calendar">
     <%= month_calendar do |date| %>
-  <%= link_to date.day, "/tasks/#{date}" %>
-  <br>
-  <% hour = Task.where(date: date,user_id: user.id).all.sum("hour") %>
-  <% minute = Task.where(date: date,user_id: user.id).all.sum("minute")%>
-  
-  <% if (minute.to_i/60)>0 %>
-<% hour = hour.to_i + (minute.to_i/60) %>
-<% minute = minute.to_i%60 %>
-<% end %>
-
-<% if hour.to_i !=0 || minute.to_i !=0 %>
-<h6><b>Total: </b><%= hour.to_s + " hrs " + minute.to_s + " mins" %> </h6>
-<% end %>
-<%end%>
-
-        <p><a class="btn btn-primary btn-md" href="/tasks/new" role="button"> Add Task</a></p>
+    <%= link_to date.day, "/tasks/#{date}" %>
+    <% end %>
+    <p><a class="btn btn-primary btn-md" href="/tasks/new" role="button"> Add Task</a></p>
+  </div>
 </div>
-    </div>
 
 <% else %>
 <div class="jumbotron">
-      <div class="container">
-        <h1>iDone List</h1>
-        <p>There are many task planning apps in the market, but productivity is measured by what you have done, not what you plan to do, so let's look back and see what you have accomplished!</p>
-        <p><a class="btn btn-primary btn-lg" href="/users/new" role="button"> Sign Up Now &raquo;</a></p>
-      </div>
-    </div>
+  <div class="container">
+    <h1>iDone List</h1>
+    <p>There are many task planning apps in the market, but productivity is measured by what you have done, not what you plan to do, so let's look back and see what you have accomplished!</p>
+    <p><a class="btn btn-primary btn-lg" href="/users/new" role="button"> Sign Up Now &raquo;</a></p>
+  </div>
+</div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-          <h2>Calendar View</h2>
-          <p>iDone is a calendar based app, you can add and update tasks accomplished for any date!</p>
-          <p><a class="btn btn-default" href="/users/new" role="button">Sign Up &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-          <h2>Easy to Use</h2>
-          <p>iDone is intuitive and easy to use. New accomplished tasks can be added with a click of a button.</p>
-          <p><a class="btn btn-default" href="/users/new" role="button">Sign Up &raquo;</a></p>
-       </div>
-        <div class="col-md-4">
-          <h2>Write Anywhere</h2>
-          <p>Write accomplished tasks whenever and wherever!  Never forget what you have done again!</p>
-          <p><a class="btn btn-default" href="/users/new" role="button">Sign Up &raquo;</a></p>
-        </div>
-      </div>
-<% end %>
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Calendar View</h2>
+      <p>iDone is a calendar based app, you can add and update tasks accomplished for any date!</p>
+      <p><a class="btn btn-default" href="/users/new" role="button">Sign Up &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Easy to Use</h2>
+      <p>iDone is intuitive and easy to use. New accomplished tasks can be added with a click of a button.</p>
+      <p><a class="btn btn-default" href="/users/new" role="button">Sign Up &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>Write Anywhere</h2>
+      <p>Write accomplished tasks whenever and wherever!  Never forget what you have done again!</p>
+      <p><a class="btn btn-default" href="/users/new" role="button">Sign Up &raquo;</a></p>
+    </div>
+  </div>
+  <% end %>

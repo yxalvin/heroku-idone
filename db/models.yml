@@ -1,6 +1,6 @@
 Task
   user_id: integer
-  date: datetime
+  date: text
   name: text
   description: text
   importance: text

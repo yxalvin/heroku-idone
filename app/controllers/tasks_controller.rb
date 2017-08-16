@@ -13,7 +13,9 @@ class TasksController < ApplicationController
 
   def show
     @date = params["date"]
-    @tasks = Task.where(date: params["date"],user_id:@user.id).all
+    @tasks = Task.where(date: @date,user_id:@user.id).all
+    @hour = @tasks.sum("hour")
+    @minute = @tasks.sum("minute")
   end
 
   def new
@@ -25,8 +27,8 @@ class TasksController < ApplicationController
     if @task.user_id!=@user.id
       redirect_to root_url, notice: "Access Denied"
     else
-    @date = @task.date
-  end
+      @date = @task.date
+    end
   end
 
   def update
@@ -37,25 +39,28 @@ class TasksController < ApplicationController
     t.hour = params["time"]["written_on(4i)"]
     t.minute = params["time"]["written_on(5i)"]
     t.importance = params["importance"]
-    t.save
-
-    redirect_to "/tasks/#{params[:date]}", notice: 'Task successfully updated.'
+    if t.save
+      redirect_to "/tasks/#{params[:date]}", notice: 'Task successfully updated.'
+    else
+      redirect_to "/tasks/#{params[:date]}", notice: 'Task update failed. Please fill all required feilds.'
+    end 
+    
   end
 
   def create
-      t = Task.new
-      t.name = params["name"]
-      t.description = params["description"]
-      t.date = params["date"]
-      t.user_id=@user.id
-      t.hour = params["time"]["written_on(4i)"]
-      t.minute = params["time"]["written_on(5i)"]
-      t.importance = params["importance"]
-      if t.save
-        redirect_to "/tasks/#{params[:date]}", notice: 'Task successfully created.'
-      else
-        redirect_to "/tasks/#{params[:date]}", notice: 'Task creation failed. Please fill all required feilds.'
-      end 
+    t = Task.new
+    t.name = params["name"]
+    t.description = params["description"]
+    t.date = params["date"]
+    t.user_id=@user.id
+    t.hour = params["time"]["written_on(4i)"]
+    t.minute = params["time"]["written_on(5i)"]
+    t.importance = params["importance"]
+    if t.save
+      redirect_to "/tasks/#{params[:date]}", notice: 'Task successfully created.'
+    else
+      redirect_to "/tasks/#{params[:date]}", notice: 'Task creation failed. Please fill all required feilds.'
+    end 
   end
 
   def destroy

@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-7">
     <h1><%= "Tasks Completed (#{@date})"%></h1>
     <hr>
     <% if @tasks.count==0%>
@@ -17,8 +17,19 @@
         <hr>
         <%end%>
     </ol>
+
+    <% hour = @hour %>
+    <% minute = @minute%>
+
+    <% if (minute.to_i/60)>0 %>
+    <% hour = hour.to_i + (minute.to_i/60) %>
+    <% minute = minute.to_i%60 %>
+    <% end %>
+
+    <b>Total Time Spent: </b><%= hour.to_s + " hrs " + minute.to_s + " mins" %>
     <%end%>
 
+    <br><br>
     <%= button_to "Add", "/tasks/new", form: {class:'inline-block'}, params:{date: "#{@date}"}, method: :get, class: 'btn btn-primary'%> 
     <a class="btn btn-primary btn-md" href="/tasks" role="button">Back</a>
 
