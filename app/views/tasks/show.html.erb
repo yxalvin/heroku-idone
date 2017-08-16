@@ -18,8 +18,8 @@
         <%end%>
     </ol>
 
-    <% hour = @tasks.hour.to_i.sum %>
-    <% minute = @tasks.minute.to_i.sum%>
+    <% hour = @tasks.sum("hour") %>
+    <% minute = @tasks.sum("minute")%>
 
     <% if (minute.to_i/60)>0 %>
     <% hour = hour.to_i + (minute.to_i/60) %>

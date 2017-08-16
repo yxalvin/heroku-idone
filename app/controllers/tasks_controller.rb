@@ -34,8 +34,8 @@ class TasksController < ApplicationController
     t.name = params["name"]
     t.description = params["description"]
     t.date = params["date"]
-    t.hour = params["time"]["written_on(4i)"]
-    t.minute = params["time"]["written_on(5i)"]
+    t.hour = params["time"]["written_on(4i)"].to_i
+    t.minute = params["time"]["written_on(5i)"].to_i
     t.importance = params["importance"]
     if t.save
       redirect_to "/tasks/#{params[:date]}", notice: 'Task successfully updated.'
