@@ -29,7 +29,6 @@ end
 
 group :production do
   gem 'pg'
-  gem "simple_calendar", "~> 2.0"
 end
 
 group :development do
