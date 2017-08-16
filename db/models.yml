@@ -4,8 +4,8 @@ Task
   name: text
   description: text
   importance: text
-  hour: integer
-  minute: integer
+  hour: text
+  minute: text
   created_at: datetime
   updated_at: datetime
 
